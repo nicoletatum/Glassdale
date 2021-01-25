@@ -9,4 +9,7 @@ import { getCriminals } from "./criminals/CriminalProvider.js"
 CriminalList()
 getCriminals()
 
+import { ConvictionSelect } from "./convictions/ConvictionSelect.js"
+ConvictionSelect()
+
 
