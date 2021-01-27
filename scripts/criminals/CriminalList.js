@@ -1,24 +1,33 @@
 import { getCriminals, useCriminals } from "./CriminalProvider.js"
 import { Criminal } from "./Criminal.js"
 
-const criminalsContainer = document.querySelector(".criminalsContainer")
+const contentTarget = document.querySelector(".criminalsContainer") 
+const eventHub = document.querySelector(".container") 
 
 export const CriminalList = () => {
-
-    getCriminals() 
+    getCriminals()
         .then(() => {
-        const criminalArray = useCriminals()
-
-        let criminalsHTMLRepresentations = ""
-
-        for (const criminal of criminalArray) {
-            criminalsHTMLRepresentations += Criminal(criminal)
-         }
-
-         criminalsContainer.innerHTML = 
-            `<h3>Glassdale Criminals</h3>
-            <section class="criminalList">
-            ${criminalsHTMLRepresentations}
-            </section>`
-    })
+            const appStateCriminals = useCriminals()
+            render(appStateCriminals)
+        })
 }
+
+eventHub.addEventListener("crimeChosen", event => {
+    
+    if (event.detail.crimeThatWasChosen !== "0"){
+        const appStateCriminals = useCriminals()
+        const matchingCriminals = appStateCriminals.filter(criminal => {
+            return criminal.conviction === event.detail.crimeThatWasChosen
+
+        })
+       render(matchingCriminals)
+    }
+})
+
+const render = (criminalCollection) => {
+    contentTarget.innerHTML = criminalCollection.map(criminal => Criminal(criminal)).join("")
+}
+
+
+
+
