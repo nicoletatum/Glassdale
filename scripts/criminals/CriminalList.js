@@ -11,18 +11,34 @@ export const CriminalList = () => {
             render(appStateCriminals)
         })
 }
-
+    //crimeChosen is the event name  that was dispatched from convictionSelect
 eventHub.addEventListener("crimeChosen", event => {
     
     if (event.detail.crimeThatWasChosen !== "0"){
         const appStateCriminals = useCriminals()
         const matchingCriminals = appStateCriminals.filter(criminal => {
             return criminal.conviction === event.detail.crimeThatWasChosen
-
         })
-       render(matchingCriminals)
+    render(matchingCriminals)
     }
 })
+
+
+ 
+eventHub.addEventListener("officerSelected", event => {
+    const officerName = event.detail.officer
+
+    const criminals = useCriminals()
+    const arrestedBy = criminals.filter(
+        criminalObject => {
+            if (criminalObject.arrestingOfficer === officerName) {
+                console.log(officerName)
+                return true
+            }
+        })
+        render(arrestedBy)
+})
+
 
 const render = (criminalCollection) => {
     contentTarget.innerHTML = criminalCollection.map(criminal => Criminal(criminal)).join("")
