@@ -26,7 +26,7 @@ const render = convictionsCollection => {
                         const convictionsArray = convictionsObject.name
                         return `<option>${convictionsArray}</option>`
                 })
-                }
+            }
         </select>
     `
 }
