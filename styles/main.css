@@ -38,6 +38,14 @@
     padding: .5em
 }
 
+.note{
+    padding: .5em;
+}
+
+.noteListButton, #saveNote{
+    margin:.5em
+}
+
 p{
     margin:.1em;
 }
