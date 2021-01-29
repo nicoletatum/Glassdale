@@ -12,19 +12,23 @@
     <main class="container">
         <header>
             <div class="filters">
+                <p> Filter Criminals:</p>
                 <div class="filter filters__crime"></div>
-                <div class="filter filters__incarceration"></div>
                 <div class="filter filters__officer"></div>
+                <!-- <div class="filter filters__incarceration"></div> -->
             </div>
         </header>
-        <article class="noteFormContainer"></article>
-        <div class="criminalsContainer"></div>
-        <article class="officersContainer"></article>
-
-        <aside class="noteListContainer">
-            <div class="noteListButton"></div>
-            <article class="noteList"></article>
-        </aside>
+        <div class="caseDataContainer">
+            <section>
+                <article class="criminalsContainer"></article>
+                <article class="officersContainer"></article>
+            </section>
+            <aside class=notesAside>        <!--"noteListContainer">>  -->
+                <article class="noteFormContainer"></article>
+                <div class="noteListButton"></div>
+                <article class="notesContainer"></article> <!--"noteListContainer">>  -->
+            </aside>
+        </div>
     </main>
 
     <script type="module" src="./scripts/main.js"></script>
