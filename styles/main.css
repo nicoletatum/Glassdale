@@ -1,17 +1,48 @@
-.criminalList{
-   display:flex;
-   flex-direction:row;
-   flex-wrap:wrap;
-   justify-content:space-evenly;
+.criminalsContainer, .officersContainer{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-evenly;
+    border:dotted rgb(100, 100, 100) .1em;
+    margin:1em
+}
+.notesAside{
+    display:flex;
+    flex-direction: column;
+    padding-top:1.5em
 }
 
 .criminal{
-border:dotted .1em;
-width:25%;
-padding:.5em;
-margin:1em;
+    border:dotted .1em;
+    width:25%;
+    padding:.5em;
+    margin:1em;
+}
+
+.caseDataContainer {
+    display: flex;
+}
+
+
+.filter{
+    margin:.5em;
+}
+
+.filters{
+    display:flex;
+    background-color: rgba(120, 134, 172, 0.767);
+    padding: .5em
+}
+
+.form{
+    background-color: rgba(120, 134, 172, 0.767);
+    padding: .5em
 }
 
 p{
-    margin:5px;
+    margin:.1em;
 }
+h4{
+    margin:.3em;
+    text-align: center;
+}
+
