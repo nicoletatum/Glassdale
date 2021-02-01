@@ -1,42 +1,73 @@
+@import './modal.css';
+
+body{
+background:linear-gradient(to bottom, #ffffff 12%, #f0ecec 97%);
+font-family: 'Courier New', Courier, monospace;
+display: flex;
+}
+.greeting{
+    text-align: center;
+    padding: 1em;;
+}
 .criminalsContainer, .officersContainer{
     display:flex;
     flex-wrap:wrap;
-    justify-content:space-evenly;
-    border:dotted rgb(100, 100, 100) .1em;
-    margin:1em
+    justify-content:center;
+    border:double rgba(177, 177, 177, 0.548) .09em;
+    background-color: rgba(236, 236, 236, 0.411);
+    max-width: 93%;
+    margin:1em;
 }
 .notesAside{
     display:flex;
     flex-direction: column;
-    padding-top:1.5em
+    padding:1.5em 1.5em 0em 1.5em;
+    margin-right:1em;
+    background-color: rgba(236, 236, 236, 0.411);
 }
 
 .criminal{
-    border:dotted .1em;
+    border:double .2em rgba(155, 151, 151, 0.377);
     width:25%;
-    padding:.5em;
-    margin:1em;
+    padding:.7em;
+    margin:.9em;
+    background-color: rgb(255, 255, 255);
 }
 
 .caseDataContainer {
     display: flex;
 }
-
-
-.filter{
-    margin:.5em;
-}
-
 .filters{
     display:flex;
-    background-color: rgba(120, 134, 172, 0.767);
-    padding: .5em
+    background:linear-gradient(to bottom, #ffffff 12%, #e6e6e6 77%);
+    margin-top:1em;
+    padding: .5em;
+    width: 100%;
+    border-left: double .3em rgba(211, 211, 211, 0.658);
+    border-bottom: double .4em rgba(211, 211, 211, 0.658);
 }
 
-.form{
-    background-color: rgba(120, 134, 172, 0.767);
-    padding: .5em
+.filter{
+    padding:.5em;
+    margin:.5em;
+    margin-left: 2em;
+    font-weight: bold;
+    border-color: rgba(211, 211, 211, 0.658);
+    border-radius: 10px;
+    border-style: none double solid double;
 }
+
+.filterText{
+    padding:.5em;
+    margin:.5em;
+    margin-left: 2em;
+    font-weight: bold;
+}
+
+/* .form{
+    background-color: rgba(224, 221, 221, 0.767);
+    padding: .5em
+} */
 
 .note{
     padding: .5em;
@@ -49,8 +80,12 @@
 p{
     margin:.1em;
 }
-h4{
+h3{
     margin:.3em;
     text-align: center;
 }
 
+.dropdown{
+    border-radius:4px;
+    background-color:rgb(226, 226, 226);
+}
