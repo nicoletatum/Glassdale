@@ -10,7 +10,7 @@ export const getConvictions = () => {
         //puts parsed response in convictions variable:
         .then(
             parsedConvictions => {
-                console.table(parsedConvictions)
+                // console.table(parsedConvictions)
                 convictions = parsedConvictions
             }
         )
