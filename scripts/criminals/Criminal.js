@@ -5,7 +5,7 @@ import { ShowAlibiButton } from "../Alibi/ShowAlibiButton.js"
 export const Criminal = (criminalObj) => {
     return`
     <div class="criminal">
-      <h3 class=criminalName>  ${criminalObj.name}</h3>
+      <h4 class=criminalName>  ${criminalObj.name}</h4>
       <p class=criminaAge> Age: ${criminalObj.age}</p>
       <p class=criminalCrime> Crime: ${criminalObj.conviction}</p>
       <p class=criminalTermStart> Term start: ${new Date(criminalObj.incarceration.start).toLocaleDateString('en-US')}</p>

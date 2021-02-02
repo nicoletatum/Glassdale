@@ -9,17 +9,17 @@ const render = () => {
     <form action="">
         <label for="noteSuspect">Suspect: </label>
         <input type="text" id="noteSuspect">
-
+        <br>
         <label for="noteAuthor">Author: </label>
         <input type="text" id="noteAuthor">
-
+        <br>
         <label for="noteDate">Date: </label>
         <input type="date" id="noteDate">
-
+        <br>
 
         <label for="noteText">Note: </label>
         <input type="text" id="noteText">
-
+        <br>
         <button id="saveNote">Save Note</button>
     </form>
         
