@@ -27,6 +27,8 @@ display: flex;
 }
 
 .criminal{
+    display: flex;
+    flex-wrap: wrap;
     border:double .2em rgba(155, 151, 151, 0.377);
     width:25%;
     padding:.7em;
@@ -43,16 +45,16 @@ display: flex;
     margin-top:1em;
     padding: .5em;
     width: 100%;
-    border-left: double .3em rgba(211, 211, 211, 0.658);
+    /* border-left: double .3em rgba(211, 211, 211, 0.658); */
     border-bottom: double .4em rgba(211, 211, 211, 0.658);
 }
 
 .filter{
-    padding:.5em;
+    padding:.3em;
     margin:.5em;
     margin-left: 2em;
     font-weight: bold;
-    border-color: rgba(211, 211, 211, 0.658);
+    border-color: rgba(255, 255, 255, 0.658);
     border-radius: 10px;
     border-style: none double solid double;
 }
@@ -70,6 +72,8 @@ display: flex;
 } */
 
 .note{
+    display:flex;
+    flex-direction: column;
     padding: .5em;
 }
 
@@ -80,7 +84,7 @@ display: flex;
 p{
     margin:.1em;
 }
-h3{
+h4{
     margin:.3em;
     text-align: center;
 }
@@ -88,4 +92,12 @@ h3{
 .dropdown{
     border-radius:4px;
     background-color:rgb(226, 226, 226);
+}
+
+button{
+    margin-top:.5em;
+}
+
+label, input{
+    margin:.3em;
 }
