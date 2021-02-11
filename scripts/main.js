@@ -8,10 +8,11 @@ import { OfficerSelect } from "./officers/OfficerSelect.js"
 import { OfficerList } from "./officers/OfficerList.js"
 import { getOfficers } from "./officers/OfficerProvider.js"
 import "./notes/NoteList.js"
-
+import { ShowWitnessButton } from "./witness/witnessButton.js"
 
 NoteForm()
 ShowNoteButton()
+ShowWitnessButton()
 // ShowAlibiButton()
 CriminalList()
 getCriminals()

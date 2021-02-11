@@ -7,7 +7,7 @@ display: flex;
 }
 .greeting{
     text-align: center;
-    padding: 1em;;
+    padding: 1em;
 }
 .criminalsContainer, .officersContainer{
     display:flex;
@@ -50,7 +50,7 @@ display: flex;
 }
 
 .filter{
-    padding:.3em;
+    padding-top:.2em;
     margin:.5em;
     margin-left: 2em;
     font-weight: bold;

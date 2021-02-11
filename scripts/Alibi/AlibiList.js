@@ -7,6 +7,7 @@ export const AlibiList = (criminalObj) => {
     <div id="alibi__modal" class="modal--parent">
         <div class="modal--content">
             <h1>Known associates for ${criminalObj.name}</h1>
+            
             ${criminalObj.known_associates.map(associate => {
         return `<section class="associate__container">
             <div class="associate__name">${associate.name}</div>

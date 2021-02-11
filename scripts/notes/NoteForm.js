@@ -34,10 +34,10 @@ export const NoteForm = () => {
 eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "saveNote") {
         clickEvent.preventDefault()
-        const suspect = document.getElementById("noteSuspect").value
-        const author = document.getElementById("noteAuthor").value
-        const date = document.getElementById("noteDate").value
-        const text = document.getElementById("noteText").value
+        const suspect = document.getElementById(".noteSuspect").value
+        const author = document.getElementById(".noteAuthor").value
+        const date = document.getElementById(".noteDate").value
+        const text = document.getElementById(".noteText").value
       // Make a new object representation of a note
         const newNote = {
         // Key/value pairs here
