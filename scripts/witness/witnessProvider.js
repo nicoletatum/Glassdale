@@ -6,10 +6,11 @@ export const useWitnesses = () => {
 
 export const getWitnesses = () => {
     return fetch("https://criminals.glassdale.us/witnesses")
-        .then(response => response.json())
-        .then(
-            parsedWitnesses => {
-                witesses = parsedWitnesses 
+        .then((response) => response.json())
+        .then((parsedWitnesses) => {
+                console.table(parsedWitnesses);
+                witnesses = parsedWitnesses 
+                
             }
         )
 }

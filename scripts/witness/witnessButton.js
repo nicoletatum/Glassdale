@@ -1,16 +1,16 @@
-const eventHub = document.querySelector(".container")
+
 const contentTarget = document.querySelector(".witnessButton")
 
 export const ShowWitnessButton = () => {
-    contentTarget.innerHTML = "<button id='showWitnesses'>Show Witnesses</button>"
+    contentTarget.innerHTML = '<button id="witnessButton">Show Witnesses</button>'
 }
 
-eventHub.addEventListener("click", clickEvent => {
-    if (clickEvent.target.id === "showWitnesses") {
+const eventHub = document.querySelector(".container")
+
+eventHub.addEventListener("click", (clickEvent) => {
+    if (clickEvent.target.id === "witnessButton") {
+        clickEvent.preventDefault();
         const customEvent = new CustomEvent("showWitnessesClicked")
         eventHub.dispatchEvent(customEvent)
     }
 })
-
-
-// eventHub.addEventListener()

@@ -1,30 +1,45 @@
 //have an event listener listen to the click event 
-import { Witness } from "./witness"
-import {useWitnesses, getWitnesses} from "./witnessProvider"
+import { Witness } from "./witness.js"
+import {useWitnesses, getWitnesses} from "./witnessProvider.js"
 
-eventHub.addEventListener("witnessClicked", () =>{
+const eventHub = document.querySelector(".container")
+const contentTarget = document.querySelector(".criminalsContainer")
+
+eventHub.addEventListener("witnessButtonClick", (e) => {
+    getWitnesses().then(() => {
+        const witnessArray = useWitnesses();
+        const witnessString = witnessArray
+        .map((witnesses) => {
+            return Witness(witnesses);
+        })
+        .join("");
+        contentTarget.innerHTML = witnessString;
+    });
+});
+
+
+// event listener for button
+eventHub.addEventListener("witnessClicked", event => { 
     witnessList()
 } )
 
-const witnesList = () => {
 
-    getWitnessStatement()
-        .then(() => {
-            const witnessArray = useWitnessStatement()
+const render = (witnessArray) => {
+    let witnessHTMLRep = ""
 
-            CanvasRenderingContext2D(witnessArray)
-        })
-}
-
-const render = (witnessStatementsArray) => {
-    let witnessStatementsHTMLRepresentations = ""
-    for (const witness of witnessStatementsArray) {
-
-        witnessStatementsHTMLRepresentations += useWitnessStatement(Witness)
-
-        witnessContainer.innerHTML = `
+    for (const witness of witnessArray) {
+        witnessHTMLRep += Witness(witness)
+    }
+        witnessArray.innerHTML = `
             <h2>Witness Statements</h2>
-            <section class="witness"> </section>
+            <section class="witnessList">${witnessHTMLRep}</section>
         `
     }
+
+export const witnessList = () => {
+    getWitnesses()
+        .then(() => {
+            const witnessArray = useWitnesses()
+            render(witnessArray)
+        })
 }

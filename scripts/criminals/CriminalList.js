@@ -1,8 +1,31 @@
 import { getCriminals, useCriminals } from "./CriminalProvider.js"
 import { Criminal } from "./Criminal.js"
+// import { getWitnesses, useWitnesses } from "../witness/witnessProvider.js"
+// import { Witness } from "../witness/witness.js"
 
 const contentTarget = document.querySelector(".criminalsContainer") 
 const eventHub = document.querySelector(".container") 
+
+
+// export const WitnessList = () => {
+//     getWitnesses().then(() => {
+//         const witnessObj = useWitnesses();
+//         renderWitness(witnessObj);
+//     });
+// };
+
+//     const renderWitness = (witnessObject) => {
+//     let witnesshtmlRep = "";
+//     for (const witness of witnessObject) {
+//         witnesshtmlRep += Witness(witness);
+//     }
+    
+//     contentTarget.innerHTML = ` <section class="witnessList"><h3>Witness Statements</h3>${witnesshtmlRep} </section>`;
+//     };
+//     eventHub.addEventListener("showWitnessClicked", (customEvent) => {
+//     WitnessList();
+// });
+
 
 export const CriminalList = () => {
     getCriminals()
@@ -11,7 +34,7 @@ export const CriminalList = () => {
             render(appStateCriminals)
         })
 }
-    //crimeChosen is the event name  that was dispatched from convictionSelect
+
 eventHub.addEventListener("crimeChosen", event => {
     
     if (event.detail.crimeThatWasChosen !== "0"){
@@ -22,7 +45,6 @@ eventHub.addEventListener("crimeChosen", event => {
     render(matchingCriminals)
     }
 })
-
 
  
 eventHub.addEventListener("officerSelected", event => {
