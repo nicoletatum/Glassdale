@@ -59,7 +59,6 @@ eventHub.addEventListener("click", clickEvent => {
         "date": date,
         "author": author,
         }
-        debugger
       // Change API state and application state
         saveNote(newNote)
     }

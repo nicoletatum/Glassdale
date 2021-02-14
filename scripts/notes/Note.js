@@ -6,6 +6,7 @@ export const NoteHTMLConverter = (noteObject, criminalObject) => {
             <div class="noteSuspect">Suspect: ${criminalObject.name}</div>
             <div class="noteAuthor">Author: ${noteObject.author}</div>
             <div class="noteDate">Date: ${new Date(noteObject.date).toLocaleDateString('en-US')}</div>
+            <button id="deleteNote--${noteObject.id}">Delete</button>
         </section>
     `
     }
