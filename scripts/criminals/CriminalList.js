@@ -1,7 +1,5 @@
 import { getCriminals, useCriminals } from "./CriminalProvider.js"
 import { Criminal } from "./Criminal.js"
-// import { getWitnesses, useWitnesses } from "../witness/witnessProvider.js"
-// import { Witness } from "../witness/witness.js"
 
 const contentTarget = document.querySelector(".criminalsContainer") 
 const eventHub = document.querySelector(".container") 
@@ -46,7 +44,6 @@ eventHub.addEventListener("crimeChosen", event => {
     }
 })
 
- 
 eventHub.addEventListener("officerSelected", event => {
     const officerName = event.detail.officer
 
@@ -54,7 +51,6 @@ eventHub.addEventListener("officerSelected", event => {
     const arrestedBy = criminals.filter(
         criminalObject => {
             if (criminalObject.arrestingOfficer === officerName) {
-                console.log(officerName)
                 return true
             }
         })
