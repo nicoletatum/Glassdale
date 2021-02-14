@@ -1,20 +1,18 @@
 import { getNotes, useNotes } from "./NoteDataProvider.js";
 import { NoteHTMLConverter } from "./Note.js";
+import { getCriminals, useCriminals } from "../criminals/CriminalProvider.js"
 
-// Query the DOM for the element that your notes will be added to 
 const contentTarget = document.querySelector(".notesContainer")
-// Define ye olde Evente Hubbe
 const eventHub = document.querySelector(".container")
 
 eventHub.addEventListener("showNotesClicked", customEvent => {
     NoteList()
 })
 
-const render = (noteArray) => {
+const render = (noteArray, criminalArray) => {
     const allNotesConvertedToStrings = noteArray.map(noteObject => {
-    return NoteHTMLConverter(noteObject)
-
-    // convert the notes objects to HTML with NoteHTMLConverter
+        const relatedCriminalObject = criminalArray.find(criminal => criminal.id === noteObject.criminalId)
+        return NoteHTMLConverter(noteObject, relatedCriminalObject)
     }).join("")
 
     contentTarget.innerHTML = `
@@ -25,12 +23,13 @@ const render = (noteArray) => {
     `
 }
 
-// Standard list function you're used to writing by now. BUT, don't call this in main.js! Why not?
 export const NoteList = () => {
     getNotes()
-    .then(() => {
+    .then(getCriminals) 
+        .then(()=> {
         const allNotes = useNotes()
-        render(allNotes)
+        const allCriminals = useCriminals()
+        render(allNotes, allCriminals)
     })
 }
 
@@ -39,18 +38,3 @@ eventHub.addEventListener("noteStateChanged", event => {
     NoteList()
     }
 })
-
-
-// const contentTarget = document.querySelector(".noteFormContainer")
-
-// const render = () => {
-//     contentTarget.innerHTML = `
-//         Put some input fields and prompts here
-
-//         <button id="saveNote">Save Note</button>
-//     `
-// }
-
-// export const NoteForm = () => {
-//     render()
-// }

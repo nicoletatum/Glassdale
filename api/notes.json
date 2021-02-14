@@ -1,23 +1,25 @@
 {
   "notes": [
     {
+      "text": "asdaf",
+      "criminalId": 11,
+      "date": "2021-02-04",
+      "author": "asdfd",
       "id": 1
     },
     {
-      "text": "sdfasd",
-      "suspect": "skdjj",
-      "date": "",
-      "author": "asdfsdf",
+      "text": "tst",
+      "criminalId": 5,
+      "date": "2021-02-16",
+      "author": "test",
       "id": 2
     },
     {
+      "text": "tst",
+      "criminalId": 5,
+      "date": "2021-02-16",
+      "author": "test",
       "id": 3
-    },
-    {
-      "text": "sdfasd",
-      "suspect": "skdjj",
-      "date": "",
-      "author": "asdfsdf",
-      "id": 4
     }
+  ]
 }
