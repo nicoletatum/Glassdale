@@ -1,5 +1,7 @@
 import { getCriminals, useCriminals } from "./CriminalProvider.js"
 import { Criminal } from "./Criminal.js"
+import { getFacilities, useFacilities } from "../facility/FacilityProvider.js"
+import { getCriminalFacilities, useCriminalFacilities } from "../facility/CriminalFacilityProvider.js"
 
 const contentTarget = document.querySelector(".criminalsContainer") 
 const eventHub = document.querySelector(".container") 
@@ -26,10 +28,14 @@ const eventHub = document.querySelector(".container")
 
 
 export const CriminalList = () => {
-    getCriminals()
+    getFacilities()     
+    // getCriminals()
+    .then(getCriminalFacilities)
         .then(() => {
+            const facilities = useFacilities()
+            const crimFac = useCriminalFacilities()
             const appStateCriminals = useCriminals()
-            render(appStateCriminals)
+            render(appStateCriminals, facilities, crimFac)
         })
 }
 
@@ -58,8 +64,20 @@ eventHub.addEventListener("officerSelected", event => {
 })
 
 
-const render = (criminalCollection) => {
-    contentTarget.innerHTML = criminalCollection.map(criminal => Criminal(criminal)).join("")
+const render = (criminalCollection, allFacilities, allRelationships) => {
+    contentTarget.innerHTML = criminalCollection.map(
+        (criminal) => { 
+            // Step 2 - Filter all relationships to get only ones for this criminal
+            const facilityRelationshipsForThisCriminal = allRelationships.filter(cf => cf.criminalId === criminal.id)
+            // Step 3 - Convert the relationships to facilities with map()
+            const facilities = facilityRelationshipsForThisCriminal.map(cf => {
+                const matchingFacilityObject = allFacilities.find(facility => facility.id === cf.facilityId)
+                return matchingFacilityObject
+            })
+            // Must pass the matching facilities to the Criminal component
+            return Criminal(criminal, facilities)
+        }
+    ).join("")
 }
 
 
