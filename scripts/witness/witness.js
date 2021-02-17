@@ -1,9 +1,9 @@
 export const Witness = (witnesses) => {
     return`
-    <div class="witness">
+    <div class="witnesses">
     <h4> Witness Statements </h4>
-    <p>Name: ${witnesses.name}</p>
-    <p>Witness: ${witnesses.statements}</p>
+    <p class="name">Name: ${witnesses.name}</p>
+    <p class="statement">Witness: ${witnesses.statements}</p>
     </div>
     `
 }

@@ -38,6 +38,13 @@ export const CriminalList = () => {
             render(appStateCriminals, facilities, crimFac)
         })
 }
+//all of this might be wrong lol 
+
+// eventHub.addEventListener("showFacilitiesClicked", customEvent => {
+    
+//     // NoteList()
+//     console.log("test")
+// })
 
 eventHub.addEventListener("crimeChosen", event => {
     
@@ -82,4 +89,6 @@ const render = (criminalCollection, allFacilities, allRelationships) => {
 
 
 
-
+eventHub.addEventListener("showWitnessesClicked", event => {
+    contentTarget.innerHTML =""
+  })

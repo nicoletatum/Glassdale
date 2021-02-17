@@ -52,18 +52,16 @@ display: flex;
 
 .filter{
     padding-top:.2em;
-    margin:.5em;
-    margin-left: 2em;
+    margin:.5em .5em 0em .5em;
     font-weight: bold;
-    border-color: rgba(255, 255, 255, 0.658);
+    /* border-color: rgba(255, 255, 255, 0.658); */
     border-radius: 10px;
-    border-style: none double solid double;
+    /* border-style: none double solid double; */
 }
 
 .filterText{
     padding:.5em;
-    margin:.5em;
-    margin-left: 2em;
+    margin:.5em .5em 0em .5em;
     font-weight: bold;
 }
 
@@ -71,6 +69,12 @@ display: flex;
     background-color: rgba(224, 221, 221, 0.767);
     padding: .5em
 } */
+
+.buttons{
+    border-left:solid;
+    padding:.5em .5em 0em .5em;
+    font-weight: bold;
+}
 
 .note{
     display:flex;
@@ -96,9 +100,14 @@ h3{
 }
 
 button{
-    margin-top:.5em;
+    margin-top: .5em;
 }
 
 label, input{
     margin:.3em;
 }
+#witnessButton{
+    margin:0em .5em 0em .5em;
+}
+#facility__button{
+    margin:.7em .5em 0em 0em;
