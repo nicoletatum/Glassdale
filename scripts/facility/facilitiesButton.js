@@ -3,7 +3,7 @@ const contentTarget = document.querySelector(".facility__button")
 const eventHub = document.querySelector(".container")
 
 eventHub.addEventListener("click", clickEvent => {
-    if (clickEvent.target.id === "showFacilities") {
+    if (clickEvent.target.id === "facility__button") {
         console.log("test")
         const customEvent = new CustomEvent("showFacilitiesClicked")
         eventHub.dispatchEvent(customEvent)
