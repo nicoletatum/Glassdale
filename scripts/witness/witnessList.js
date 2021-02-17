@@ -1,4 +1,3 @@
-//have an event listener listen to the click event 
 import { Witness } from "./witness.js"
 import {useWitnesses, getWitnesses} from "./witnessProvider.js"
 
@@ -13,27 +12,8 @@ export const witnessList = () => {
         })
 }
 
-eventHub.addEventListener("showWitnessesClicked", customEvent => { 
-    witnessList()
-} )
-
-eventHub.addEventListener("witnessButtonClick", (e) => {
-    getWitnesses().then(() => {
-        const witnessArray = useWitnesses();
-        const witnessString = witnessArray
-        .map((witnesses) => {
-            return Witness(witnesses);
-        })
-        .join("");
-        contentTarget.innerHTML = witnessString;
-    });
-});
-
-
-
 const render = witnessArray => {
     let witnessHTMLRep = ""
-    // debugger
     for (const witnessObj of witnessArray) {
         witnessHTMLRep += Witness(witnessObj)
     }
@@ -43,3 +23,6 @@ const render = witnessArray => {
         `
     }
 
+eventHub.addEventListener("showWitnessesClicked", customEvent => { 
+    witnessList()
+} )

@@ -8,7 +8,6 @@ const eventHub = document.querySelector(".container")
 
 export const CriminalList = () => {
     getFacilities()     
-    // getCriminals()
     .then(getCriminalFacilities)
         .then(() => {
             const facilities = useFacilities()
@@ -19,19 +18,21 @@ export const CriminalList = () => {
 }
 
 eventHub.addEventListener("crimeChosen", event => {
-    
     if (event.detail.crimeThatWasChosen !== "0"){
         const appStateCriminals = useCriminals()
+        const facilities = useFacilities()
+            const crimFac = useCriminalFacilities()
         const matchingCriminals = appStateCriminals.filter(criminal => {
             return criminal.conviction === event.detail.crimeThatWasChosen
         })
-    render(matchingCriminals)
+    render(matchingCriminals, facilities, crimFac)
     }
 })
 
 eventHub.addEventListener("officerSelected", event => {
     const officerName = event.detail.officer
-
+    const facilities = useFacilities()
+    const crimFac = useCriminalFacilities()
     const criminals = useCriminals()
     const arrestedBy = criminals.filter(
         criminalObject => {
@@ -39,8 +40,16 @@ eventHub.addEventListener("officerSelected", event => {
                 return true
             }
         })
-        render(arrestedBy)
+        render(arrestedBy, facilities, crimFac)
 })
+
+eventHub.addEventListener("showWitnessesClicked", event => {
+    contentTarget.innerHTML =""
+    })
+
+eventHub.addEventListener("showFacilitiesClicked", event => {
+    contentTarget.innerHTML =""
+    })
 
 //step 1 iterate all criminals (run through criminals)
 const render = (criminalCollection, allFacilities, allRelationships) => {
@@ -60,12 +69,3 @@ const render = (criminalCollection, allFacilities, allRelationships) => {
 }
 
 
-
-eventHub.addEventListener("showWitnessesClicked", event => {
-    contentTarget.innerHTML =""
-  })
-
-
-eventHub.addEventListener("showFacilitiesClicked", event => {
-    contentTarget.innerHTML =""
-  })
