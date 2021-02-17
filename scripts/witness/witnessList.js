@@ -5,6 +5,18 @@ import {useWitnesses, getWitnesses} from "./witnessProvider.js"
 const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector(".criminalsContainer")
 
+export const witnessList = () => {
+    getWitnesses()
+        .then(() => {
+            const witnessArray = useWitnesses()
+            render(witnessArray)
+        })
+}
+
+eventHub.addEventListener("showWitnessesClicked", customEvent => { 
+    witnessList()
+} )
+
 eventHub.addEventListener("witnessButtonClick", (e) => {
     getWitnesses().then(() => {
         const witnessArray = useWitnesses();
@@ -18,28 +30,16 @@ eventHub.addEventListener("witnessButtonClick", (e) => {
 });
 
 
-// event listener for button
-eventHub.addEventListener("witnessClicked", event => { 
-    witnessList()
-} )
 
-
-const render = (witnessArray) => {
+const render = witnessArray => {
     let witnessHTMLRep = ""
-
-    for (const witness of witnessArray) {
-        witnessHTMLRep += Witness(witness)
+    // debugger
+    for (const witnessObj of witnessArray) {
+        witnessHTMLRep += Witness(witnessObj)
     }
-        witnessArray.innerHTML = `
+        contentTarget.innerHTML = `
             <h2>Witness Statements</h2>
             <section class="witnessList">${witnessHTMLRep}</section>
         `
     }
 
-export const witnessList = () => {
-    getWitnesses()
-        .then(() => {
-            const witnessArray = useWitnesses()
-            render(witnessArray)
-        })
-}

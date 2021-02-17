@@ -1,6 +1,7 @@
 import { NoteForm } from "./notes/NoteForm.js"
 import { ShowNoteButton } from "./notes/ShowNotesButton.js";
-import { ShowWitnessButton } from "./witness/witnessButton.js"
+import { ShowFacilitiesButton } from "./facility/facilitiesButton.js"
+import "./facility/FacilityList.js"
 // import { ShowAlibiButton } from "./notes/ShowNotesButton.js"
 import { CriminalList } from "./criminals/CriminalList.js"
 import { getCriminals } from "./criminals/CriminalProvider.js"
@@ -10,11 +11,15 @@ import { OfficerSelect } from "./officers/OfficerSelect.js"
 import { OfficerList } from "./officers/OfficerList.js"
 import { getOfficers } from "./officers/OfficerProvider.js"
 import "./notes/NoteList.js"
-import "./witness/witnessList.js"
+
+import { witnessList} from "./witness/witnessList.js"
+import { ShowWitnessButton } from "./witness/witnessButton.js"
+import{ getWitnesses } from "./witness/witnessProvider.js"
 
 NoteForm()
 ShowNoteButton()
 ShowWitnessButton()
+ShowFacilitiesButton()
 // ShowAlibiButton()
 CriminalList()
 getCriminals()
@@ -22,5 +27,7 @@ ConvictionSelect()
 OfficerSelect()
 OfficerList()
 getOfficers()
-// witnessList()
+witnessList()
+getWitnesses()
+
 

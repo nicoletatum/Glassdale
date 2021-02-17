@@ -6,27 +6,6 @@ import { getCriminalFacilities, useCriminalFacilities } from "../facility/Crimin
 const contentTarget = document.querySelector(".criminalsContainer") 
 const eventHub = document.querySelector(".container") 
 
-
-// export const WitnessList = () => {
-//     getWitnesses().then(() => {
-//         const witnessObj = useWitnesses();
-//         renderWitness(witnessObj);
-//     });
-// };
-
-//     const renderWitness = (witnessObject) => {
-//     let witnesshtmlRep = "";
-//     for (const witness of witnessObject) {
-//         witnesshtmlRep += Witness(witness);
-//     }
-    
-//     contentTarget.innerHTML = ` <section class="witnessList"><h3>Witness Statements</h3>${witnesshtmlRep} </section>`;
-//     };
-//     eventHub.addEventListener("showWitnessClicked", (customEvent) => {
-//     WitnessList();
-// });
-
-
 export const CriminalList = () => {
     getFacilities()     
     // getCriminals()
@@ -63,7 +42,7 @@ eventHub.addEventListener("officerSelected", event => {
         render(arrestedBy)
 })
 
-
+//step 1 iterate all criminals (run through criminals)
 const render = (criminalCollection, allFacilities, allRelationships) => {
     contentTarget.innerHTML = criminalCollection.map(
         (criminal) => { 
@@ -82,4 +61,11 @@ const render = (criminalCollection, allFacilities, allRelationships) => {
 
 
 
+eventHub.addEventListener("showWitnessesClicked", event => {
+    contentTarget.innerHTML =""
+  })
 
+
+eventHub.addEventListener("showFacilitiesClicked", event => {
+    contentTarget.innerHTML =""
+  })
